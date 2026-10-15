@@ -1,95 +1,33 @@
 # Student Management API
 
-A RESTful Student Management API built using FastAPI and SQLite.
-This project demonstrates CRUD operations, data validation, and database integration.
+A RESTful API built using FastAPI and SQLite to manage student records
+through CRUD operations.
+
+## Live Demo
+
+- **API:** https://student-crud-api-nxrk.onrender.com
+- **Swagger Documentation:** https://student-crud-api-nxrk.onrender.com/docs
 
 ## Features
 
-- Create a new student
+- Create student records
 - Retrieve all students
 - Retrieve a student by ID
-- Update student details
-- Delete a student
-- Email validation
-- Date of birth validation
-- Duplicate email prevention
+- Update student information
+- Delete student records
+- Email validation using Pydantic
+- Duplicate email detection
 - SQLite database integration
-- Interactive API documentation using Swagger UI
+- RESTful API endpoints
+- HTTP error handling
 
-## Technologies Used
+## Tech Stack
 
 - Python
 - FastAPI
 - SQLite
 - Pydantic
 - Uvicorn
-
-## Project Structure
-
-```text
-student-crud-api/
-├── main.py
-├── database.py
-├── requirements.txt
-├── .gitignore
-└── README.md
-```
-
-## Prerequisites
-
-- Python 3.10 or later
-- pip
-
-## Installation
-
-### 1. Clone the repository
-
-```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-cd student-crud-api
-```
-
-### 2. Create a virtual environment
-
-Windows:
-
-```powershell
-python -m venv venv
-```
-
-### 3. Activate the virtual environment
-
-```powershell
-.\venv\Scripts\Activate.ps1
-```
-
-### 4. Install dependencies
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-## Run the Application
-
-Start the development server:
-
-```bash
-python -m uvicorn main:app --reload
-```
-
-The API will run at:
-
-http://127.0.0.1:8000
-
-## API Documentation
-
-Swagger UI:
-
-http://127.0.0.1:8000/docs
-
-Alternative documentation:
-
-http://127.0.0.1:8000/redoc
 
 ## API Endpoints
 
@@ -98,38 +36,49 @@ http://127.0.0.1:8000/redoc
 | GET | `/` | Check API status |
 | POST | `/students` | Create a student |
 | GET | `/students` | Retrieve all students |
-| GET | `/students/{student_id}` | Retrieve a student by ID |
-| PUT | `/students/{student_id}` | Update student details |
+| GET | `/students/{student_id}` | Retrieve a student |
+| PUT | `/students/{student_id}` | Update a student |
 | DELETE | `/students/{student_id}` | Delete a student |
 
-## Example Request
+## Installation
 
-Create a student using `POST /students`:
+1. Clone the repository:
 
-```json
-{
-  "name": "Rahul Sharma",
-  "date_of_birth": "2004-05-15",
-  "email": "rahul@example.com",
-  "phone": "9876543210",
-  "course": "B.Tech CSE"
-}
-```
+   `git clone https://github.com/Ayush26-03/student-crud-api.git`
+
+2. Navigate to the project directory:
+
+   `cd student-crud-api`
+
+3. Create a virtual environment:
+
+   `python -m venv venv`
+
+4. Activate it on Windows:
+
+   `venv\Scripts\activate`
+
+5. Install dependencies:
+
+   `pip install -r requirements.txt`
+
+6. Start the server:
+
+   `uvicorn main:app --reload`
+
+7. Open Swagger UI:
+
+   `http://127.0.0.1:8000/docs`
 
 ## Database
 
-The application uses SQLite to store student records.
+SQLite is used to store student records. The database table is
+created automatically when the application starts.
 
-The database table is created automatically when the application starts.
-The database file is generated locally and is not required in the Git repository.
+## Deployment
 
-## Error Handling
+Deployed on Render.
 
-- `404 Not Found` — Student does not exist.
-- `409 Conflict` — Email address already exists.
-- `422 Unprocessable Entity` — Request validation failed.
-- `500 Internal Server Error` — Database operation failed.
+## Author
 
-## License
-
-This project is intended for educational purposes.
+Ayush Pandey
